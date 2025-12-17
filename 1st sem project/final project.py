@@ -22,15 +22,16 @@ from io import BytesIO
 from tkintermapview import TkinterMapView
 from datetime import datetime
 import google.generativeai as genai
+import os
 
 
-API_KEY = "0799e9cd716a70e392dd03c9616c6830"
+API_KEY = os.getenv("weather_api")
 # Requirement: API authentication via API keys
 BASE_URL = "https://api.openweathermap.org/data/2.5/weather"
 
 # Configure Gemini AI
 
-GEMINI_API_KEY = "AIzaSyAESizStdexaKFcIQC-t2SkownEc7X3sck"
+GEMINI_API_KEY = os.getenv("gemini_api")
 try:
     genai.configure(api_key=GEMINI_API_KEY)
 except Exception as e:
